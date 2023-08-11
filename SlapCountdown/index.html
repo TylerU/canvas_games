@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<style type="text/css">
+      html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+      }
+      #countdown{
+        position:absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -350px;
+        margin-top: -50px;
+        width: 700px;
+        height: 100px;
+      }
+      .countdownSection{
+        float:left;
+        position: relative;
+        width: 150px;
+      }
+      .small{
+        width: 40px;
+      }
+      .number{
+        color: darkred;
+        font-size: 80px;
+      }
+      .numberLabel{
+        color: white;
+        text-transform: uppercase;
+        font-size: 30px;
+      }
+
+      .numberLabel, .number{
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        font-family: "Verdana";
+      }
+  </style>
+
+  <script src="jquery.js"></script>
+
+  <script type="text/javascript">
+
+    var roundDown = function(num){
+      var full = num.toString();
+      var reg = /([\d]+)/i;
+      var res = reg.exec(full);
+      return res[1];
+    }
+
+    var updateTime = function(){
+        var today = new Date(); // date and time right now
+        var goLive = new Date("08/22/2013"); // target date
+        var diffMs = (goLive - today); // milliseconds between now & target date
+        var diffDays = roundDown(diffMs / 86400000); // days
+        var diffHrs = roundDown((diffMs % 86400000) / 3600000); // hours
+        var diffMins = roundDown(((diffMs % 86400000) % 3600000) / 60000); // minutes
+        var diffSecs = roundDown((((diffMs % 86400000) % 3600000) % 60000) / 1000 ); // seconds
+
+        $("#numDays").html(diffDays);
+        $("#numHours").html(diffHrs);
+        $("#numMinutes").html(diffMins);
+        $("#numSeconds").html(diffSecs);
+    }
+    $(function(){
+      updateTime();
+      setInterval(function() {
+        updateTime();
+      }, 1000) 
+    })
+
+  </script>
+	<head>
+		<meta charset="utf-8">
+		<title>Slap Countdown</title>
+	</head>
+	<body>   
+    <div id="countdown">
+      <div class="countdownSection" id="days">
+        <div id="numDays" class="number">10</div>
+        <div class="numberLabel">Days</div>
+      </div>
+      <div class="countdownSection" id="hours">
+        <div id="numHours" class="number">1</div>
+        <div class="numberLabel">Hours</div>
+      </div>
+      <div class="countdownSection small" id="">
+        <div id="" class="number">:</div>
+      </div>      
+      <div class="countdownSection" id="minutes">
+        <div id="numMinutes" class="number">1</div>
+        <div class="numberLabel">Minutes</div>
+      </div>      
+      <div class="countdownSection small" id="">
+        <div id="" class="number">:</div>
+      </div>         
+      <div class="countdownSection" id="seconds">
+        <div id="numSeconds" class="number">1</div>
+        <div class="numberLabel">Seconds</div>
+      </div>            
+    </div>
+	</body>
+</html>

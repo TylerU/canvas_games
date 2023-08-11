@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <script type="text/javascript">
+        window.requestAnimFrame = (function(){
+            return  window.requestAnimationFrame       ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame    ||
+                    window.oRequestAnimationFrame      ||
+                    window.msRequestAnimationFrame     ||
+                    function(/* function */ callback, /* DOMElement */ element){
+                        window.setTimeout(callback, 1000 / 60);
+                    };
+        })();
+    </script>
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <script type="text/javascript" src="js/lib/jQuery.js"></script>
+    <script data-main="app" src="js/lib/require.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="game"></canvas>
+</body>
+</html>

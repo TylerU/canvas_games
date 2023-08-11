@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+	<style type="text/css">
+      canvas
+      {
+      }
+      body
+      {
+        width: 100%;
+        height:100%;
+        margin: 0px;
+        overflow: hidden;
+      }
+      .command-button{
+        position: relative;
+        width: 100px;
+        height: 50px;
+        background-color: gray;
+        display: table-cell;
+        vertical-align: middle;
+        margin: 20px;
+      }
+
+      #dashboard{
+         -moz-user-select: -moz-none;
+         -khtml-user-select: none;
+         -webkit-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+
+         position: absolute;
+         top: 20px;
+         left: 20px;
+      }
+      #canvasContainer{
+        position: absolute;
+      }
+    </style>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Simple Canvas Game</title>
+	</head>
+	<body>   
+		<script src="../JS_HELPERS/Assets.js"></script>
+		<script src="../JS_HELPERS/Vector.js"></script>
+    <script src="../JS_HELPERS/Helpers.js"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/CollisionDetector.js"></script>
+    <script src="js/lib/angular.js"></script>
+		<script src="js/game.js"></script>
+
+    <link rel="stylesheet" href="style/jquery-ui.css">
+    <link rel="stylesheet" href="style/home.css">
+    <div id="canvasContainer"></div>
+    <div id="dashboard" ng-controller="DashboardController"> 
+      <div id="baseControls" ng-show="shouldShowBaseControls()">
+        <div class="command-button" ng-click="tryToCreateShip()">
+            Create Ship
+        </div>
+        Money: ${{getCurrentMoney()}}
+      </div>
+      <div id="ship-selection-controls" ng-show="shouldShowShipSelectionControls()">
+        Currently Selected Ships: {{getSelectionProperties().length}}
+      </div>
+      <div class="command-button" ng-click="returnHome()">Go Home</div>
+    </div>
+	</body>
+</html>

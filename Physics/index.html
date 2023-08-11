@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+#stuff {
+ position:absolute;
+ top:0;
+ right:250px;
+ width:200px;
+}
+</style>
+	<head>
+		<meta charset="utf-8">
+		<title>Simple Canvas Game</title>
+	</head>
+	<body>    
+    
+    
+         <div id="stuff"> 
+            <form name="settings"">
+            
+            <p>Collision Type: </p>
+            <select name="type" onchange="typeChange();">
+            <option value="elastic">Perfectly Elastic Collision</option>
+            <option value="inelastic">Perfectly Inelastic Collision</option>
+            </select>
+            
+            <p>Object #1 Stats:</p>
+            Mass: <input type="text" name="m1" value="170" onchange = "m1Change();" /> g<br />
+            Initial Speed: <input type="text" name="vi1" value="200" onchange = "vi1Change();" /> pixels/s<br />
+            
+            <div id="extra">
+            	Final Speed: <input type="text" name="vf1" onchange = "vf1Change();" /> pixels/s<br />
+            </div>
+            
+            <p> Object #2 Stats:</p> 
+            Mass: <input type="text" name="m2" value="170" onchange = "m2Change();" /> g<br />
+            Initial Speed: <input type="text" name="vi2" value="-200" onchange = "vi2Change();" /> pixels/s<br />
+           
+            
+            <br />
+            <input type="button" value="Begin Simulation" onclick="formSubmit();" />
+            </form> 
+        </div>
+
+           
+		<script src="js/Assets.js"></script>    
+		<script src="js/Vector.js"></script>
+        
+		<script src="js/game.js"></script>   
+        
+            <p id = "results"></p>
+             
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style type="text/css">
+      canvas
+      {
+      }
+      body
+      {
+
+      }
+	  div{
+		font-size:20px;
+	  }
+    </style>
+	
+	<head>
+		<meta charset="utf-8">
+		<title>Simple Canvas Game</title>
+	</head>
+	<body>
+		<div id="stat123" name="test"> 
+		</div>
+	</body>
+	<script src="lib/jquery-1.7.2.min.js"></script> 
+	<script type="text/javascript">
+	var stats = ["Health","Armor","Damage","AttackSpeed"]
+	
+	function test(arg){
+		alert("UPGRADED "+ arg);
+	}
+	
+	for (var i = 0; i < stats.length; i++){
+		var myID = stats[i];
+		$('#stat123').prepend("<p id='" + myID +  "'> " + myID + " <a href=''><img border = '0' id='image123' src='images/btn_upgrade.png' /></a> </p>") 
+		$('#' + myID).click(function(){
+			test($(this).attr('id'));
+		});
+	}
+	
+	</script>	
+</html>
